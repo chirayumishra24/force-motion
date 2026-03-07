@@ -521,6 +521,35 @@ img {
   filter: contrast(1.15) drop-shadow(0 8px 12px rgba(10, 25, 47, 0.14));
 }
 
+.unit-character-stack {
+  position: relative;
+  width: 132px;
+  min-width: 132px;
+  height: 92px;
+}
+
+.unit-character {
+  position: absolute;
+  bottom: 0;
+  width: 74px;
+  height: 74px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.82);
+  border: 2px solid rgba(16, 32, 59, 0.14);
+  box-shadow: 8px 8px 0 rgba(10, 25, 47, 0.1);
+  padding: 0.4rem;
+}
+
+.unit-character-back {
+  left: 0;
+  z-index: 1;
+}
+
+.unit-character-front {
+  right: 0;
+  z-index: 2;
+}
+
 .unit-eyebrow {
   font-family: var(--font-pixel);
   font-weight: 700;
@@ -1362,6 +1391,17 @@ img {
 
   .unit-icon-large {
     font-size: 2.5rem;
+  }
+
+  .unit-character-stack {
+    width: 108px;
+    min-width: 108px;
+    height: 80px;
+  }
+
+  .unit-character {
+    width: 64px;
+    height: 64px;
   }
 
   .unit-title {

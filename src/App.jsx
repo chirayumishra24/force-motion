@@ -120,6 +120,27 @@ function DataTable({ headers, rows }) {
   )
 }
 
+function ScientistTitleArt() {
+  return (
+    <div className="unit-character-stack" aria-hidden="true">
+      <motion.img
+        src="/assets/galileo.png"
+        alt=""
+        className="unit-character unit-character-back"
+        animate={{ y: [0, -4, 0], rotate: [0, -1.5, 0] }}
+        transition={{ repeat: Infinity, duration: 4.5, ease: 'easeInOut' }}
+      />
+      <motion.img
+        src="/assets/newton.png"
+        alt=""
+        className="unit-character unit-character-front"
+        animate={{ y: [0, -6, 0], rotate: [0, 1.5, 0] }}
+        transition={{ repeat: Infinity, duration: 3.8, ease: 'easeInOut', delay: 0.4 }}
+      />
+    </div>
+  )
+}
+
 function SectionBlock({ section, index, videoLookup }) {
   const typeClass = section.type === 'activity' ? 'section-activity'
     : section.type === 'insight' ? 'section-insight'
@@ -310,13 +331,7 @@ function UnitView({ unit }) {
           visible: { opacity: 1, y: 0, transition: { type: "tween", duration: 0.4 } }
         }}
       >
-        <motion.span
-          className="unit-icon-large"
-          animate={{ y: [-3, 3, -3] }}
-          transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
-        >
-          {unit.icon}
-        </motion.span>
+        <ScientistTitleArt />
         <div>
           <div className="unit-eyebrow">Unit {unit.number}</div>
           <h2 className="unit-title">{unit.title}</h2>
@@ -371,13 +386,7 @@ function SummaryView({ summary }) {
       transition={{ type: "tween", duration: 0.4 }}
     >
       <div className="unit-header-card" style={{ '--unit-color': '#2dce89' }}>
-        <motion.span
-          className="unit-icon-large"
-          animate={{ y: [-3, 3, -3] }}
-          transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
-        >
-          🎓
-        </motion.span>
+        <ScientistTitleArt />
         <div>
           <div className="unit-eyebrow">Chapter Recap</div>
           <h2 className="unit-title">{summary.heading}</h2>
