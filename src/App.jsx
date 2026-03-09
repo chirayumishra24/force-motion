@@ -3,6 +3,7 @@ import { Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-
 import { motion, AnimatePresence } from 'framer-motion'
 import ThreeBackground from './ThreeBackground'
 import PhysicsSimulation from './PhysicsSimulations'
+import ExperientialActivity from './ExperientialActivity'
 import courseData from './courseData'
 
 /* ─── Helpers: YouTube parsing from document content ─── */
@@ -472,6 +473,30 @@ function RetroLanding() {
             <span className="retro-card-cta">► REVIEW</span>
           </div>
         </motion.div>
+
+        {/* Experiential Activity Card */}
+        <motion.div
+          className="retro-unit-card"
+          onClick={() => navigate('/experiential')}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.56, type: "tween", duration: 0.3 }}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => e.key === 'Enter' && navigate('/experiential')}
+        >
+          <div className="retro-card-header" style={{ background: '#ef4444' }}>
+            <span className="retro-card-number">EXPERIENTIAL</span>
+            <span className="retro-card-dot"></span>
+          </div>
+          <div className="retro-card-body">
+            <span className="retro-card-icon">🎮</span>
+            <span className="retro-card-title">3D Activities</span>
+          </div>
+          <div className="retro-card-footer">
+            <span className="retro-card-cta">► ENTER LAB</span>
+          </div>
+        </motion.div>
       </div>
     </motion.div>
   )
@@ -533,6 +558,7 @@ export default function App() {
                 />
               ))}
               <Route path="/summary" element={<SummaryView summary={courseData.summary} />} />
+              <Route path="/experiential" element={<ExperientialActivity />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </AnimatePresence>
