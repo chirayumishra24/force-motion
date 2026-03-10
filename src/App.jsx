@@ -82,12 +82,12 @@ function removeSectionVideoLinks(html = '') {
 function VideoCard({ video }) {
   return (
     <motion.div
-      className="video-embed"
+      className={`video-embed ${video.isShort ? 'video-short' : ''}`}
       whileHover={{ x: -2, y: -2 }}
       whileTap={{ x: 1, y: 1 }}
       transition={{ type: "tween", duration: 0.1 }}
     >
-      <div className="video-aspect-ratio">
+      <div className={`video-aspect-ratio ${video.isShort ? 'is-short' : ''}`}>
         <iframe
           src={ytEmbed(video.id)}
           title={video.title}
@@ -125,14 +125,14 @@ function ScientistTitleArt() {
   return (
     <div className="unit-character-stack" aria-hidden="true">
       <motion.img
-        src="/assets/galileo.png"
+        src="/assets/galileo.webp"
         alt=""
         className="unit-character unit-character-back"
         animate={{ y: [0, -4, 0], rotate: [0, -1.5, 0] }}
         transition={{ repeat: Infinity, duration: 4.5, ease: 'easeInOut' }}
       />
       <motion.img
-        src="/assets/newton.png"
+        src="/assets/newton.webp"
         alt=""
         className="unit-character unit-character-front"
         animate={{ y: [0, -6, 0], rotate: [0, 1.5, 0] }}
@@ -148,7 +148,7 @@ function SectionBlock({ section, index, videoLookup }) {
       : ''
 
   const isNewton = index % 2 === 0
-  const avatarSrc = isNewton ? '/assets/newton.png' : '/assets/galileo.png'
+  const avatarSrc = isNewton ? '/assets/newton.webp' : '/assets/galileo.webp'
   const scientistName = isNewton ? 'Isaac Newton' : 'Galileo Galilei'
   const inlineVideos = section.type === 'table' ? [] : extractSectionVideos(section.content, videoLookup)
   const renderedContent = section.type === 'table' ? section.content : removeSectionVideoLinks(section.content)

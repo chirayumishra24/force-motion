@@ -612,6 +612,10 @@ img {
   background: #000;
 }
 
+.video-aspect-ratio.is-short {
+  padding-bottom: 177.78%;
+}
+
 .video-aspect-ratio iframe {
   position: absolute;
   top: 0;

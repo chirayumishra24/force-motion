@@ -18,7 +18,7 @@ const courseData = {
           heading: "1.1 The Quest for the Cause of Motion",
           content: `<p>In our previous study of motion, we focused on <i>describing</i> how objects move, tracking their position, velocity, and acceleration. Now, we shift our focus to the "why." This unit explores the underlying cause of motion and the evolution of how we understand it.</p>
 <p>For centuries, the mystery of what causes motion puzzled the greatest minds. Early observations, like a ball eventually stopping after being hit, led to the long-held belief that <b>rest</b> was the "natural state" of an object. This perspective changed only when <b>Galileo Galilei</b> and <b>Isaac Newton</b> introduced a revolutionary approach to physics.</p>
-<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307120459-23.png" style="max-width:100%;height:auto;border:3px solid #e63946;margin:1rem 0;" /></p>
+<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307120459-23.png" style="max-width:100%;height:auto;border:3px solid #e63946;margin:1rem auto;display:block;" /></p>
 <p><b><i>Pushing, pulling, or hitting objects change their state of motion</i></b></p>`
         },
         {
@@ -40,7 +40,7 @@ const courseData = {
 	<li><b>Change Shape and Size:</b> For example, stretching a spring or compressing a rubber ball.</li>
 </ol>
 <p>A force can be used to change the magnitude of velocity of an object (that is, to make the object move faster or slower) or to change its direction of motion. We also know that a force can change the shape and size of objects.</p>
-<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307120459-24.png" style="max-width:100%;height:auto;border:3px solid #e63946;margin:1rem 0;" /></p>
+<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307120459-24.png" style="max-width:100%;height:auto;border:3px solid #e63946;margin:1rem auto;display:block;" /></p>
 <p>(a) A spring expands on application of force;<br>(b) A spherical rubber ball becomes oblong as we apply force on it.</p>`
         }
       ]
@@ -64,7 +64,7 @@ const courseData = {
 	<li><b>Example (Strings):</b> If a wooden block is pulled from both sides (String X and String Y) with equal force, it will not move.</li>
 	<li><b>Example (Box):</b> When children push a box with a small force and it doesn't move, the friction force perfectly balances the pushing force.</li>
 </ul>
-<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307120814-25.png" style="max-width:100%;height:auto;border:3px solid #e63946;margin:1rem 0;" /></p>
+<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307120814-25.png" style="max-width:100%;height:auto;border:3px solid #e63946;margin:1rem auto;display:block;" /></p>
 <p><i>Two forces acting on a wooden block</i></p>`
         },
         {
@@ -74,7 +74,7 @@ const courseData = {
 	<li><b>Effect:</b> An unbalanced force is <b>required to accelerate</b> an object (change its speed or direction). If an unbalanced force is removed completely, the object will continue to move at the velocity it has already acquired.</li>
 	<li><b>Example (Box):</b> If children push hard enough that the pushing force becomes bigger than the friction force, the box starts moving.</li>
 </ul>
-<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307120814-26.png" style="max-width:100%;height:auto;border:3px solid #e63946;margin:1rem 0;" /></p>`
+<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307120814-26.png" style="max-width:100%;height:auto;border:3px solid #e63946;margin:1rem auto;display:block;" /></p>`
         },
         {
           heading: "Friction & Key Insights",
@@ -102,7 +102,7 @@ const courseData = {
       colorSoft: "rgba(255,61,113,0.12)",
       icon: "📐",
       videos: [
-        { id: "vzYhw7mWQJ8", title: "Galileo's Concept of Inertia — Arbor Scientific" },
+        { id: "3cvtVVrl5bk", title: "Galileo's Concept of Inertia — Arbor Scientific" },
         { id: "adLj6kygwds", title: "What Is Newton's First Law Of Motion? — Dr. Binocs Show" }
       ],
       sections: [
@@ -110,20 +110,20 @@ const courseData = {
           heading: "The First Law of Motion (Law of Inertia)",
           content: `<p>Often called the <b>Law of Inertia</b>, this unit covers Galileo's observations and Newton's formalization.</p>
 <h3>Galileo's Foundation</h3>
-<p><a href="https://youtu.be/vzYhw7mWQJ8" style="color:#00d4ff; text-decoration:underline">Galileo's Concept of Inertia | Arbor Scientific</a></p>
+<p><a href="https://youtu.be/3cvtVVrl5bk?rel=0" style="color:#00d4ff; text-decoration:underline">Galileo's Concept of Inertia | Arbor Scientific</a></p>
 <p>Before Newton, it was commonly thought that a constant force was required to keep an object moving. Galileo challenged this by using <b>inclined planes</b>:</p>
 <ul class="rich-list">
 	<li><b>The Experiment:</b> He observed that a marble rolling down one plane would climb up an opposing plane to almost the same height.</li>
 	<li><b>The Deduction:</b> He reasoned that if the second plane were perfectly horizontal and frictionless, the marble would continue to move <b>forever</b> at a constant speed, as it would never reach its original height.</li>
 	<li><b>The Conclusion:</b> No net force is needed to sustain uniform motion; a force is only needed to <i>change</i> that motion.</li>
 </ul>
-<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307120848-27.png" style="max-width:100%;height:auto;border:3px solid #e63946;margin:1rem 0;" /></p>
+<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307120848-27.png" style="max-width:100%;height:auto;border:3px solid #e63946;margin:1rem auto;display:block;" /></p>
 <p><i>(a) the downward motion; (b) the upward motion of a marble on an inclined plane; and (c) on a double inclined plane.</i></p>`
         },
         {
           heading: "Newton's Formalization",
           content: `<p>Newton refined these ideas into his <b>First Law of Motion</b>:</p>
-<p><a href="https://youtu.be/adLj6kygwds" style="color:#00d4ff; text-decoration:underline">What Is Newton's First Law Of Motion?</a></p>
+<p><a href="https://youtu.be/adLj6kygwds?rel=0" style="color:#00d4ff; text-decoration:underline">What Is Newton's First Law Of Motion?</a></p>
 <p><i>"An object remains in a state of rest or of uniform motion in a straight line unless compelled to change that state by an applied force."</i></p>
 <p>This means objects have a "built-in" resistance to any change in their motion. This qualitative property is called <b>Inertia</b>.</p>
 <h3>Inertia in Daily Life</h3>
@@ -165,10 +165,10 @@ const courseData = {
           heading: "Activities & Fun Facts",
           content: `<h3>Activity: Carom Coins</h3>
 <p>Make a pile of similar carom coins on a table. Attempt a sharp horizontal hit at the bottom of the pile using another carom coin or the striker. If the hit is strong enough, the bottom coin moves out quickly. Once the lowest coin is removed, the inertia of the other coins makes them 'fall' vertically on the table.</p>
-<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307120848-28.png" style="max-width:100%;height:auto;border:3px solid #e63946;margin:1rem 0;" /></p>
+<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307120848-28.png" style="max-width:100%;height:auto;border:3px solid #e63946;margin:1rem auto;display:block;" /></p>
 <p><i>Only the carom coin at the bottom of a pile is removed when a fast moving carom coin (or striker) hits it.</i></p>
 <h3>Activity: Card & Coin</h3>
-<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307120848-29.png" style="max-width:100%;height:auto;border:3px solid #e63946;margin:1rem 0;" /></p>
+<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307120848-29.png" style="max-width:100%;height:auto;border:3px solid #e63946;margin:1rem auto;display:block;" /></p>
 <p><b><i>When the card is flicked with the finger the coin placed over it falls in the tumbler.</i></b></p>
 <ul class="rich-list">
 <li>Set a five-rupee coin on a stiff card covering an empty glass tumbler standing on a table.</li>
@@ -185,7 +185,7 @@ const courseData = {
         },
         {
           heading: "History: Galileo Galilei",
-          content: `<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307120848-30.png" style="max-width:100%;height:auto;border:3px solid #e63946;margin:1rem 0;float:left;margin-right:2rem;" /></p>
+          content: `<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307120848-30.png" style="max-width:100%;height:auto;border:3px solid #e63946;margin:1rem auto;display:block;" /></p>
 <p>Galileo Galilei was born on 15 February 1564 in Pisa, Italy. Galileo, right from his childhood, had interest in mathematics and natural philosophy. But his father Vincenzo Galilei wanted him to become a medical doctor. Accordingly, Galileo enrolled himself for a medical degree at the University of Pisa in 1581 which he never completed because of his real interest in mathematics. In 1586, he wrote his first scientific book 'The Little Balance [La Balancitta]', in which he described Archimedes' method of finding the relative densities (or specific gravities) of substances using a balance. In 1589, in his series of essays – De Motu, he presented his theories about falling objects using an inclined plane to slow down the rate of descent.</p>
 <p>In 1592, he was appointed professor of mathematics at the University of Padua in the Republic of Venice. Here he continued his observations on the theory of motion and through his study of inclined planes and the pendulum, formulated the correct law for uniformly accelerated objects that the distance the object moves is proportional to the square of the time taken. Galileo was also a remarkable craftsman. He developed a series of telescopes whose optical performance was much better than that of other telescopes available during those days. Around 1640, he designed the first pendulum clock.</p>
 <p>In his book 'Starry Messenger' on his astronomical discoveries, Galileo claimed to have seen mountains on the moon, the milky way made up of tiny stars, and four small bodies orbiting Jupiter. In his books 'Discourse on Floating Bodies' and 'Letters on the Sunspots', he disclosed his observations of sunspots. Using his own telescopes and through his observations on Saturn and Venus, Galileo argued that all the planets must orbit the Sun and not the earth, contrary to what was believed at that time.</p><div style="clear:both;"></div>`
@@ -202,13 +202,13 @@ const courseData = {
       colorSoft: "rgba(168,85,247,0.12)",
       icon: "⚡",
       videos: [
-        { id: "wL9XopHoevU", title: "Inertia | What is Inertia?" }
+        { id: "fJMVWzSl2_0", title: "Inertia | What is Inertia?" }
       ],
       sections: [
         {
           heading: "Defining Inertia",
-          content: `<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307121000-33.png" style="max-width:100%;height:auto;border:3px solid #e63946;margin:1rem 0;" /></p>
-<p><a href="https://youtu.be/wL9XopHoevU" style="color:#00d4ff; text-decoration:underline">Inertia | What is Inertia ?</a></p>
+          content: `<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307121000-33.png" style="max-width:100%;height:auto;border:3px solid #e63946;margin:1rem auto;display:block;" /></p>
+<p><a href="https://youtu.be/fJMVWzSl2_0?rel=0" style="color:#00d4ff; text-decoration:underline">Inertia | What is Inertia ?</a></p>
 <ul class="rich-list">
 	<li><b>The Concept:</b> All objects offer <b>resistance</b> to changing their state of motion. If an object is at rest, it tends to stay at rest; if it is moving, it tends to keep moving. This inherent property is called <b>Inertia</b>.</li>
 	<li><b>Universal Property:</b> Every object has inertia, but the "strength" of that resistance varies from one object to another.</li>
@@ -284,7 +284,7 @@ const courseData = {
       icon: "📊",
       videos: [
         { id: "8o3j1wpabes", title: "What is Newton's 2nd Law? F = MA — Dr. Binocs" },
-        { id: "9gfWjimkY7g", title: "Understanding Force & Motion — Physics Guide" }
+        { id: "-NJ_mvIvzx8", title: "Understanding Force & Motion — Physics Guide" }
       ],
       sections: [
         {
@@ -298,8 +298,8 @@ const courseData = {
 	<li><b>Vector Nature:</b> Momentum has both magnitude and direction. Its direction is the same as the velocity.</li>
 	<li><b>SI Unit:</b> kilogram-metre per second (<b>kg m s⁻¹</b>).</li>
 </ul>
-<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307121353-34.png" style="max-width:100%;height:auto;border:3px solid #10B981;margin:1rem 0;" /></p>
-<p><a href="https://youtu.be/9gfWjimkY7g" style="color:#00d4ff; text-decoration:underline">Understanding Charging by Induction: A Physics Guide for Class 10 & 12 Students!</a></p>
+<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307121353-34.png" style="max-width:100%;height:auto;border:3px solid #10B981;margin:1rem auto;display:block;" /></p>
+<p><a href="https://youtu.be/-NJ_mvIvzx8?rel=0" style="color:#00d4ff; text-decoration:underline">Understanding Charging by Induction: A Physics Guide for Class 10 & 12 Students!</a></p>
 <p>While the First Law explains that a force is needed to change motion, the Second Law defines exactly how that force works:</p>
 <p><i>"The rate of change of momentum of an object is proportional to the applied unbalanced force in the direction of force."</i></p>`
         },
@@ -342,7 +342,7 @@ const courseData = {
         },
         {
           heading: "Mathematical Formulation of the Second Law",
-          content: `<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307121353-35.png" style="max-width:100%;height:auto;border:3px solid #10B981;margin:1rem 0;" /></p>
+          content: `<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307121353-35.png" style="max-width:100%;height:auto;border:3px solid #10B981;margin:1rem auto;display:block;" /></p>
 <p><b>Figure:</b> A person pulls on a cart of mass <i>m</i> with force <i>F</i> and, as a result, the car accelerates in the direction of the pulling force. If twice the force is applied, the acceleration of the cart is multiplied by two. If the mass of the cart being pulled is multiplied by a factor of two, its acceleration is divided by a factor of two.</p>
 <p>To measure force, we look at how much the <b>momentum</b> of an object of mass m changes over a specific time t.</p>
 <h3>The Derivation</h3>
@@ -352,11 +352,11 @@ const courseData = {
 	<li><b>Change in Momentum:</b> p<sub>2</sub> - p<sub>1</sub> = m(v - u)</li>
 	<li><b>Rate of Change of Momentum:</b></li>
 </ol>
-<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307121353-36.png" style="max-width:100%;height:auto;margin:1rem 0;" /></p>
+<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307121353-36.png" style="max-width:100%;height:auto;margin:1rem auto;display:block;" /></p>
 <p>According to the law, the applied force F is proportional to this rate:</p>
-<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307121353-37.png" style="max-width:100%;height:auto;margin:1rem 0;" /></p>
+<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307121353-37.png" style="max-width:100%;height:auto;margin:1rem auto;display:block;" /></p>
 <p>Since acceleration is,</p>
-<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307121353-38.png" style="max-width:100%;height:auto;margin:1rem 0;" /></p>
+<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307121353-38.png" style="max-width:100%;height:auto;margin:1rem auto;display:block;" /></p>
 <p>we can write: F = kma</p>
 <p>By defining one unit of force as the amount that accelerates 1kg at 1m s<sup>-2</sup>, the constant k becomes 1. Thus:</p>
 <p><b>F = ma</b></p>
@@ -366,12 +366,12 @@ const courseData = {
         },
         {
           heading: "Applications in Everyday Life",
-          content: `<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307121353-39.png" style="max-width:100%;height:auto;border:3px solid #10B981;margin:1rem 0;" /></p>
+          content: `<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307121353-39.png" style="max-width:100%;height:auto;border:3px solid #10B981;margin:1rem auto;display:block;" /></p>
 <p>The Second Law shows that force is inversely proportional to time.</p>
-<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307121353-40.png" style="max-width:100%;height:auto;margin:1rem 0;" /></p>
+<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307121353-40.png" style="max-width:100%;height:auto;margin:1rem auto;display:block;" /></p>
 <p>If you increase the time it takes to stop, the resulting force decreases.</p>
 <h3>1. Catching a Cricket Ball</h3>
-<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307121353-41.png" style="max-width:100%;height:auto;border:3px solid #10B981;margin:1rem 0;float:right;margin-left:2rem;" /></p>
+<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307121353-41.png" style="max-width:100%;height:auto;border:3px solid #10B981;margin:1rem auto;display:block;" /></p>
 <p>A fielder pulls their hands backward while catching a fast ball.</p>
 <ul class="rich-list">
 	<li><b>Reason:</b> This increases the <b>time (t)</b> taken to reduce the ball's velocity to zero.</li>
@@ -409,22 +409,22 @@ const courseData = {
       colorSoft: "rgba(249,115,22,0.12)",
       icon: "🔄",
       videos: [
-        { id: "wZsktFefGhI", title: "Newton's 3rd Law — Action and Reaction Forces — Dr. Binocs" },
+        { id: "DjtWxj0sq3M", title: "Newton's 3rd Law — Action and Reaction Forces — Dr. Binocs", isShort: true },
         { id: "eBiD6HEfoZA", title: "Newton's Third Law Explained — Physics JEE NEET" },
-        { id: "TVAxASr0iUY", title: "Third Law of Motion — Forces and Motion — Infinity Learn" }
+        { id: "TVAxASr0iUY", title: "Third Law of Motion — Forces and Motion — Infinity Learn", isShort: true }
       ],
       sections: [
         {
           heading: "Third Law of Motion",
-          content: `<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307121507-47.png" style="max-width:100%;height:auto;border:3px solid #F97316;margin:1rem 0;" /></p>
-<p><a href="https://youtu.be/wZsktFefGhI" style="color:#00d4ff; text-decoration:underline">Newton's 3rd Law of Motion | Action and Reaction Forces with Examples | Physics Laws | Dr. Binocs</a></p>
-<p><a href="https://www.youtube.com/shorts/eBiD6HEfoZA?feature=share" style="color:#00d4ff; text-decoration:underline">Class 9 Physics JEE NEET - Newton's Third Law Explained</a></p>
+          content: `<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307121507-47.png" style="max-width:100%;height:auto;border:3px solid #F97316;margin:1rem auto;display:block;" /></p>
+<p><a href="https://youtu.be/DjtWxj0sq3M?rel=0" style="color:#00d4ff; text-decoration:underline">Newton's 3rd Law of Motion | Action and Reaction Forces with Examples | Physics Laws | Dr. Binocs</a></p>
+<p><a href="https://youtube.com/shorts/FzA3jVVN0Ws" style="color:#00d4ff; text-decoration:underline">Class 9 Physics JEE NEET - Newton's Third Law Explained</a></p>
 <p>This unit explores the fundamental principle that forces never exist in isolation; they always occur as simultaneous pairs.</p>
 <h3>The Law</h3>
 <p>Newton’s Third Law states that when one object exerts a force on another object, the second object instantaneously exerts a force back on the first. These two forces are <b>equal in magnitude</b> but <b>opposite in direction</b>.</p>
 <p><b>Simplified Statement:</b> To every action, there is an equal and opposite reaction.</p>
 <p>Let us consider two spring balances connected together as shown in Fig. The fixed end of balance B is attached with a rigid support, like a wall. When a force is applied through the free end of spring balance A, it is observed that both the spring balances show the same readings on their scales. It means that the force exerted by spring balance A on balance B is equal but opposite in direction to the force exerted by the balance B on balance A. Any of these two forces can be called as action and the other as reaction. This gives us an alternative statement of the third law of motion i.e., to every action there is an equal and opposite reaction. However, it must be remembered that the action and reaction always act on two different objects, simultaneously.</p>
-<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307121507-48.png" style="max-width:100%;height:auto;border:3px solid #F97316;margin:1rem 0;" /></p>
+<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307121507-48.png" style="max-width:100%;height:auto;border:3px solid #F97316;margin:1rem auto;display:block;" /></p>
 <p><b><i>Action and reaction forces are equal and opposite.</i></b></p>`
         },
         {
@@ -438,7 +438,7 @@ const courseData = {
         },
         {
           heading: "Practical Examples and Applications",
-          content: `<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307121507-49.png" style="max-width:100%;height:auto;border:3px solid #F97316;margin:1rem 0;" /></p>
+          content: `<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307121507-49.png" style="max-width:100%;height:auto;border:3px solid #F97316;margin:1rem auto;display:block;" /></p>
 <p>A classic example of Newton’s Third Law is the action of a rocket launching. As the rocket burns fuel, it expels exhaust gases downward (action), and in response, the rocket is propelled upwards (reaction). This demonstrates the principle of action and reaction forces working in tandem, a vivid illustration of the law in a real-world context.</p>
 <h3>Practical examples</h3>
 <p><a href="https://youtu.be/TVAxASr0iUY" style="color:#00d4ff; text-decoration:underline">Newton's Third Law of Motion | Forces and Motion | Physics | Infinity Learn</a></p>
