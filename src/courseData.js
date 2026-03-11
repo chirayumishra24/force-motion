@@ -419,7 +419,7 @@ const courseData = {
       videos: [
         { id: "DjtWxj0sq3M", title: "Newton's 3rd Law — Action and Reaction Forces — Dr. Binocs" },
         { id: "eBiD6HEfoZA", title: "Newton's Third Law Explained — Physics JEE NEET", isShort: true },
-        { id: "TVAxASr0iUY", title: "Third Law of Motion — Forces and Motion — Infinity Learn", isShort: true }
+        { id: "TVAxASr0iUY", title: "Third Law of Motion — Forces and Motion — Infinity Learn" }
       ],
       sections: [
         {
