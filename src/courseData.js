@@ -77,6 +77,14 @@ const courseData = {
 <p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307120814-26.png" style="max-width:100%;height:auto;border:3px solid #e63946;margin:1rem auto;display:block;" /></p>`
         },
         {
+          heading: "Activity 4: Ramp Forces and Motion",
+          type: "activity",
+          content: `<p>Explore how unbalanced forces affect motion on an inclined plane. Try adjusting the ramp and observe the interaction of forces like gravity and friction.</p>
+<div style="width: 100%; height: 500px; border: 3px solid #FFB800; margin-top: 1rem;">
+    <iframe src="https://phet.colorado.edu/sims/cheerpj/motion-series/latest/motion-series.html?simulation=ramp-forces-and-motion" width="100%" height="100%" style="border: none;" allowfullscreen title="PhET Motion Series (Ramp Forces and Motion)"></iframe>
+</div>`
+        },
+        {
           heading: "Friction & Key Insights",
           content: `<h3>Friction</h3>
 <ul class="rich-list">

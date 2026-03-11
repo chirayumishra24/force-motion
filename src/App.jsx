@@ -186,7 +186,7 @@ function SectionBlock({ section, index, videoLookup, unitId }) {
                 <>
                   <div className="section-content" dangerouslySetInnerHTML={{ __html: renderedContent }} />
                   {inlineVideos.length > 0 && (
-                    <div className={`section-inline-videos ${unitId === 'unit-6' ? 'split-75-25' : ''}`}>
+                    <div className={`section-inline-videos ${unitId === 'unit-6' && index === 0 ? 'split-75-25' : ''}`}>
                       {inlineVideos.map((video) => <VideoCard key={`${section.heading}-${video.id}`} video={video} />)}
                     </div>
                   )}
