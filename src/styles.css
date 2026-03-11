@@ -1576,6 +1576,16 @@ img {
   border-top: 2px dashed rgba(16, 32, 59, 0.12);
 }
 
+.section-inline-videos.split-75-25 {
+  grid-template-columns: 3fr 1fr;
+}
+
+@media (max-width: 768px) {
+  .section-inline-videos.split-75-25 {
+    grid-template-columns: 1fr;
+  }
+}
+
 .section-illustration {
   max-width: 100%;
   border: 2px solid rgba(16, 32, 59, 0.12);

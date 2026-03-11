@@ -69,7 +69,8 @@ function extractSectionVideos(html = '', videoLookup = new Map()) {
     const existing = videoLookup.get(id)
     return [{
       id,
-      title: existing?.title || stripTags(label) || 'Topic Video'
+      title: existing?.title || stripTags(label) || 'Topic Video',
+      isShort: existing?.isShort || false
     }]
   })
 }
@@ -142,7 +143,7 @@ function ScientistTitleArt() {
   )
 }
 
-function SectionBlock({ section, index, videoLookup }) {
+function SectionBlock({ section, index, videoLookup, unitId }) {
   const typeClass = section.type === 'activity' ? 'section-activity'
     : section.type === 'insight' ? 'section-insight'
       : ''
@@ -185,7 +186,7 @@ function SectionBlock({ section, index, videoLookup }) {
                 <>
                   <div className="section-content" dangerouslySetInnerHTML={{ __html: renderedContent }} />
                   {inlineVideos.length > 0 && (
-                    <div className="section-inline-videos">
+                    <div className={`section-inline-videos ${unitId === 'unit-6' ? 'split-75-25' : ''}`}>
                       {inlineVideos.map((video) => <VideoCard key={`${section.heading}-${video.id}`} video={video} />)}
                     </div>
                   )}
@@ -359,7 +360,7 @@ function UnitView({ unit }) {
         <div className="timeline-line"></div>
         <div className="sections-container">
           {unit.sections.map((s, i) => (
-            <SectionBlock key={i} index={i} section={s} videoLookup={videoLookup} />
+            <SectionBlock key={i} index={i} section={s} videoLookup={videoLookup} unitId={unit.id} />
           ))}
         </div>
       </div>

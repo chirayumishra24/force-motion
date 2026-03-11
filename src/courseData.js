@@ -371,7 +371,7 @@ const courseData = {
 <p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307121353-40.png" style="max-width:100%;height:auto;margin:1rem auto;display:block;" /></p>
 <p>If you increase the time it takes to stop, the resulting force decreases.</p>
 <h3>1. Catching a Cricket Ball</h3>
-<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307121353-41.png" style="max-width:100%;height:auto;border:3px solid #10B981;margin:1rem auto;display:block;" /></p>
+<p><img src="/s/articles/69b116c260e5aaf041d25863/images/ChatGPT Image Mar 11, 2026, 12_46_02 PM.png" style="max-width:100%;height:auto;border:3px solid #10B981;margin:1rem auto;display:block;" /></p>
 <p>A fielder pulls their hands backward while catching a fast ball.</p>
 <ul class="rich-list">
 	<li><b>Reason:</b> This increases the <b>time (t)</b> taken to reduce the ball's velocity to zero.</li>
@@ -409,8 +409,8 @@ const courseData = {
       colorSoft: "rgba(249,115,22,0.12)",
       icon: "🔄",
       videos: [
-        { id: "DjtWxj0sq3M", title: "Newton's 3rd Law — Action and Reaction Forces — Dr. Binocs", isShort: true },
-        { id: "eBiD6HEfoZA", title: "Newton's Third Law Explained — Physics JEE NEET" },
+        { id: "DjtWxj0sq3M", title: "Newton's 3rd Law — Action and Reaction Forces — Dr. Binocs" },
+        { id: "eBiD6HEfoZA", title: "Newton's Third Law Explained — Physics JEE NEET", isShort: true },
         { id: "TVAxASr0iUY", title: "Third Law of Motion — Forces and Motion — Infinity Learn", isShort: true }
       ],
       sections: [
@@ -418,7 +418,7 @@ const courseData = {
           heading: "Third Law of Motion",
           content: `<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307121507-47.png" style="max-width:100%;height:auto;border:3px solid #F97316;margin:1rem auto;display:block;" /></p>
 <p><a href="https://youtu.be/DjtWxj0sq3M?rel=0" style="color:#00d4ff; text-decoration:underline">Newton's 3rd Law of Motion | Action and Reaction Forces with Examples | Physics Laws | Dr. Binocs</a></p>
-<p><a href="https://youtube.com/shorts/FzA3jVVN0Ws" style="color:#00d4ff; text-decoration:underline">Class 9 Physics JEE NEET - Newton's Third Law Explained</a></p>
+<p><a href="https://youtu.be/eBiD6HEfoZA?rel=0" style="color:#00d4ff; text-decoration:underline">Class 9 Physics JEE NEET - Newton's Third Law Explained</a></p>
 <p>This unit explores the fundamental principle that forces never exist in isolation; they always occur as simultaneous pairs.</p>
 <h3>The Law</h3>
 <p>Newton’s Third Law states that when one object exerts a force on another object, the second object instantaneously exerts a force back on the first. These two forces are <b>equal in magnitude</b> but <b>opposite in direction</b>.</p>
