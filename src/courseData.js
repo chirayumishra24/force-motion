@@ -379,7 +379,7 @@ const courseData = {
 <p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307121353-40.png" style="max-width:100%;height:auto;margin:1rem auto;display:block;" /></p>
 <p>If you increase the time it takes to stop, the resulting force decreases.</p>
 <h3>1. Catching a Cricket Ball</h3>
-<p><img src="/s/articles/69b116c260e5aaf041d25863/images/ChatGPT Image Mar 11, 2026, 12_46_02 PM.png" style="max-width:100%;height:auto;border:3px solid #10B981;margin:1rem auto;display:block;" /></p>
+<p><img src="https://login.skillizee.io/s/articles/69b116c260e5aaf041d25863/images/ChatGPT Image Mar 11, 2026, 12_46_02 PM.png" style="max-width:100%;height:auto;border:3px solid #10B981;margin:1rem auto;display:block;" /></p>
 <p>A fielder pulls their hands backward while catching a fast ball.</p>
 <ul class="rich-list">
 	<li><b>Reason:</b> This increases the <b>time (t)</b> taken to reduce the ball's velocity to zero.</li>
