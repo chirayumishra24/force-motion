@@ -409,7 +409,7 @@ function SummaryView({ summary }) {
         transition={{ delay: 0.2, duration: 0.5 }}
       >
         <img 
-          src="/assets/summary-infographic.png" 
+          src="https://login.skillizee.io/s/articles/69b26acb5568c89352886234/images/WhatsApp%20Image%202026-03-11%20at%2012.39.00.jpeg" 
           alt="Mastering the Three Laws of Motion Infographic" 
           className="summary-infographic"
         />
