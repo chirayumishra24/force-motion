@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import ThreeBackground from './ThreeBackground'
+import ForceBackground from './ForceBackground'
 import PhysicsSimulation from './PhysicsSimulations'
 import ExperientialActivity from './ExperientialActivity'
 import courseData from './courseData'
@@ -282,11 +283,17 @@ function FullscreenBtn() {
     return () => document.removeEventListener('fullscreenchange', onChange)
   }, [])
 
-  const toggle = () => {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen()
-    } else {
-      document.exitFullscreen()
+  const toggle = async () => {
+    try {
+      if (!document.fullscreenElement) {
+        await document.documentElement.requestFullscreen()
+      } else if (document.exitFullscreen) {
+        await document.exitFullscreen()
+      }
+    } catch (err) {
+      console.error('Fullscreen request problematic:', err)
+      // Fallback for some browsers if standard fails
+      setFs(false)
     }
   }
 
@@ -394,6 +401,20 @@ function SummaryView({ summary }) {
           <h2 className="unit-title">{summary.heading}</h2>
         </div>
       </div>
+      
+      <motion.div 
+        className="summary-infographic-container"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.5 }}
+      >
+        <img 
+          src="/assets/summary-infographic.png" 
+          alt="Mastering the Three Laws of Motion Infographic" 
+          className="summary-infographic"
+        />
+      </motion.div>
+
       <div className="summary-card">
         <ul className="summary-list">
           {summary.points.map((p, i) => (
@@ -542,6 +563,7 @@ export default function App() {
 
       {/* ── BEIGE CONTENT REGION ── */}
       <div className="content-wrapper">
+        <ForceBackground />
         <div className="retro-corner-tl"></div>
         <div className="retro-corner-tr"></div>
         <div className="retro-corner-bl"></div>
