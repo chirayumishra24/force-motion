@@ -595,10 +595,42 @@ function Sim3_InertiaLab() {
     const mountRef = useRef(null)
     const controlsRef = useRef({})
     const [pullSpeed, setPullSpeed] = useState(3)
+    const [selectedObject, setSelectedObject] = useState('Vase')
+    const [objectWeights, setObjectWeights] = useState({
+        Plate: 3,
+        Vase: 5,
+        Box: 7
+    })
     const [hudData, setHudData] = useState({
         clothPos: '0.0', phase: 'READY',
-        objectsMoved: 'NO', explanation: 'Objects and cloth are at rest on the table.'
+        clothSpeed: '0.0', pullForce: '0.0', frictionLoad: '0.0',
+        objectsMoved: 'NONE', explanation: 'Objects and cloth are at rest on the table.'
     })
+    const pullSpeedRef = useRef(pullSpeed)
+    const selectedObjectRef = useRef(selectedObject)
+    const objectWeightsRef = useRef(objectWeights)
+
+    useEffect(() => {
+        pullSpeedRef.current = pullSpeed
+    }, [pullSpeed])
+
+    useEffect(() => {
+        selectedObjectRef.current = selectedObject
+    }, [selectedObject])
+
+    useEffect(() => {
+        objectWeightsRef.current = objectWeights
+    }, [objectWeights])
+
+    const selectedWeight = objectWeights[selectedObject]
+    const totalWeight = Object.values(objectWeights).reduce((sum, weight) => sum + weight, 0)
+
+    const updateSelectedWeight = (value) => {
+        setObjectWeights((prev) => ({
+            ...prev,
+            [selectedObject]: value
+        }))
+    }
 
     const buildScene = useCallback((scene, camera) => {
         camera.position.set(0, 10, 16)
@@ -665,77 +697,62 @@ function Sim3_InertiaLab() {
         scene.add(clothHang)
 
         // ── Objects on the cloth — LARGE and BRIGHT ──
-
-        // 1. Yellow Plate (fat cylinder)
-        const plate = new THREE.Mesh(
-            new THREE.CylinderGeometry(1.2, 1.2, 0.4, 16),
-            new THREE.MeshStandardMaterial({
+        const objectConfigs = [
+            {
+                name: 'Plate',
                 color: 0xfbbf24,
-                metalness: 0.6,
-                roughness: 0.2,
-                emissive: new THREE.Color(0xfbbf24),
-                emissiveIntensity: 0.25
-            })
-        )
-        plate.position.set(-3, 3.55, 0)
-        scene.add(plate)
-
-        // Plate wireframe
-        const plateWire = new THREE.Mesh(
-            new THREE.CylinderGeometry(1.2, 1.2, 0.4, 16),
-            new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true, transparent: true, opacity: 0.15 })
-        )
-        plateWire.position.copy(plate.position)
-        scene.add(plateWire)
-
-        // 2. Blue Vase (big sphere)
-        const vase = new THREE.Mesh(
-            new THREE.SphereGeometry(0.9, 16, 16),
-            new THREE.MeshStandardMaterial({
+                startX: -3,
+                startY: 3.55,
+                restY: 3.5,
+                baseGlow: 0.25,
+                geometry: new THREE.CylinderGeometry(1.2, 1.2, 0.4, 16)
+            },
+            {
+                name: 'Vase',
                 color: 0x00d4ff,
-                metalness: 0.5,
-                roughness: 0.2,
-                emissive: new THREE.Color(0x00d4ff),
-                emissiveIntensity: 0.3
-            })
-        )
-        vase.position.set(0, 4.25, 0)
-        scene.add(vase)
-
-        const vaseWire = new THREE.Mesh(
-            new THREE.SphereGeometry(0.9, 16, 16),
-            new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true, transparent: true, opacity: 0.15 })
-        )
-        vaseWire.position.copy(vase.position)
-        scene.add(vaseWire)
-
-        // 3. Green Box (big cube)
-        const box = new THREE.Mesh(
-            new THREE.BoxGeometry(1.4, 1.4, 1.4),
-            new THREE.MeshStandardMaterial({
+                startX: 0,
+                startY: 4.25,
+                restY: 4.2,
+                baseGlow: 0.3,
+                geometry: new THREE.SphereGeometry(0.9, 16, 16)
+            },
+            {
+                name: 'Box',
                 color: 0x2dce89,
-                metalness: 0.4,
-                roughness: 0.3,
-                emissive: new THREE.Color(0x2dce89),
-                emissiveIntensity: 0.25
-            })
-        )
-        box.position.set(3, 4.05, 0)
-        scene.add(box)
-
-        const boxWire = new THREE.Mesh(
-            new THREE.BoxGeometry(1.4, 1.4, 1.4),
-            new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true, transparent: true, opacity: 0.15 })
-        )
-        boxWire.position.copy(box.position)
-        scene.add(boxWire)
-
-        // ── Glow rings under objects ──
-        const objects = [
-            { mesh: plate, wire: plateWire, startY: 3.55, restY: 3.5, color: 0xfbbf24, name: 'Plate' },
-            { mesh: vase, wire: vaseWire, startY: 4.25, restY: 4.2, color: 0x00d4ff, name: 'Vase' },
-            { mesh: box, wire: boxWire, startY: 4.05, restY: 4.0, color: 0x2dce89, name: 'Box' }
+                startX: 3,
+                startY: 4.05,
+                restY: 4.0,
+                baseGlow: 0.25,
+                geometry: new THREE.BoxGeometry(1.4, 1.4, 1.4)
+            }
         ]
+
+        const objects = objectConfigs.map((config) => {
+            const material = new THREE.MeshStandardMaterial({
+                color: config.color,
+                metalness: 0.45,
+                roughness: 0.25,
+                emissive: new THREE.Color(config.color),
+                emissiveIntensity: config.baseGlow
+            })
+            const mesh = new THREE.Mesh(config.geometry, material)
+            mesh.position.set(config.startX, config.startY, 0)
+            scene.add(mesh)
+
+            const wire = new THREE.Mesh(
+                config.geometry,
+                new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true, transparent: true, opacity: 0.15 })
+            )
+            wire.position.copy(mesh.position)
+            scene.add(wire)
+
+            return {
+                ...config,
+                mesh,
+                wire,
+                material
+            }
+        })
 
         objects.forEach(obj => {
             const ring = new THREE.Mesh(
@@ -769,6 +786,26 @@ function Sim3_InertiaLab() {
         let objectsDropVel = [0, 0, 0]
         let objectsSettled = [false, false, false]
         let pullSuccessful = false
+        let movedCount = 0
+
+        const updateObjectHighlights = (t = 0) => {
+            const activeObject = selectedObjectRef.current
+            const weights = objectWeightsRef.current
+
+            objects.forEach((obj, index) => {
+                const isSelected = obj.name === activeObject
+                const baseOpacity = phase === 'ready'
+                    ? 0.18 + Math.max(0, Math.sin(t * 3 + index) * 0.12)
+                    : 0.2
+
+                obj.weight = weights[obj.name] ?? 5
+                obj.ring.position.x = obj.mesh.position.x
+                obj.ring.position.z = obj.mesh.position.z
+                obj.ring.scale.setScalar(isSelected ? 1.18 : 1)
+                obj.ring.material.opacity = isSelected ? 0.7 : baseOpacity
+                obj.material.emissiveIntensity = isSelected ? obj.baseGlow + 0.18 : obj.baseGlow
+            })
+        }
 
         const resetAll = () => {
             phase = 'ready'
@@ -778,34 +815,49 @@ function Sim3_InertiaLab() {
             objectsDropVel = [0, 0, 0]
             objectsSettled = [false, false, false]
             pullSuccessful = false
+            movedCount = 0
 
             cloth.position.set(0, 3.35, 0)
             clothHang.position.set(6, 2.55, 0)
+            cloth.visible = true
             clothHang.visible = true
 
             objects.forEach((obj, i) => {
                 obj.mesh.position.y = obj.startY
-                obj.mesh.position.x = [-3, 0, 3][i]
+                obj.mesh.position.x = obj.startX
                 obj.mesh.rotation.set(0, 0, 0)
                 obj.wire.position.copy(obj.mesh.position)
                 obj.wire.rotation.copy(obj.mesh.rotation)
             })
 
             trailParticles.forEach(tp => { tp.visible = false })
+            updateObjectHighlights()
 
             setHudData({
                 clothPos: '0.0', phase: 'READY',
-                objectsMoved: 'NO',
+                clothSpeed: '0.0', pullForce: '0.0', frictionLoad: '0.0',
+                objectsMoved: 'NONE',
                 explanation: 'Objects and cloth are at rest on the table.'
             })
         }
 
         return {
             update: (t) => {
+                const currentPullSpeed = pullSpeedRef.current
+
                 if (phase === 'pulling') {
                     pullTimer += 0.016
 
-                    clothVelX = pullSpeed * 0.15
+                    const pullForce = currentPullSpeed * 6.5
+                    const frictionLoad = objects.reduce((sum, obj) => sum + obj.weight * 0.24, 0)
+                    const targetClothSpeed = THREE.MathUtils.clamp(
+                        (pullForce - frictionLoad * 0.45) * 0.028,
+                        0.04,
+                        0.85
+                    )
+
+                    // Heavier objects increase the load on the cloth, so the cloth reaches a lower speed.
+                    clothVelX += (targetClothSpeed - clothVelX) * 0.14
                     clothX += clothVelX
                     cloth.position.x = clothX
                     clothHang.position.x = 6 + clothX
@@ -823,22 +875,25 @@ function Sim3_InertiaLab() {
                         trailIdx++
                     }
 
-                    // Slow pull: objects get dragged with cloth
-                    if (pullSpeed < 2) {
-                        objects.forEach((obj, i) => {
-                            obj.mesh.position.x += clothVelX * 0.5
-                            obj.wire.position.x = obj.mesh.position.x
-                        })
-                        pullSuccessful = false
-                    } else {
-                        // Fast pull: objects barely move (inertia!)
-                        objects.forEach((obj, i) => {
-                            const drag = Math.max(0, 0.02 / pullSpeed)
-                            obj.mesh.position.x += clothVelX * drag
-                            obj.wire.position.x = obj.mesh.position.x
-                        })
-                        pullSuccessful = true
-                    }
+                    // A slower cloth gives friction more time to pull the objects along,
+                    // while higher weight increases inertia and reduces each object's shift.
+                    const speedTransferFactor = THREE.MathUtils.clamp((5 - currentPullSpeed) / 4, 0, 1)
+                    const slowClothFactor = THREE.MathUtils.clamp(1 - clothVelX / 0.75, 0.12, 0.88)
+                    objects.forEach((obj) => {
+                        const inertiaFactor = 1 / (1 + obj.weight * 0.26)
+                        const dragRatio = currentPullSpeed >= 5
+                            ? 0
+                            : THREE.MathUtils.clamp(
+                                speedTransferFactor * slowClothFactor * (0.48 + 0.16 / Math.max(currentPullSpeed, 1)) * inertiaFactor,
+                                0,
+                                0.32
+                            )
+                        obj.mesh.position.x += clothVelX * dragRatio
+                        obj.wire.position.x = obj.mesh.position.x
+                    })
+
+                    movedCount = objects.filter((obj) => Math.abs(obj.mesh.position.x - obj.startX) > 0.75).length
+                    pullSuccessful = movedCount === 0
 
                     // Cloth fully pulled out
                     if (clothX > 14) {
@@ -849,11 +904,18 @@ function Sim3_InertiaLab() {
 
                     setHudData({
                         clothPos: clothX.toFixed(1),
+                        clothSpeed: (clothVelX * 8).toFixed(2),
+                        pullForce: pullForce.toFixed(1),
+                        frictionLoad: frictionLoad.toFixed(1),
                         phase: '⚡ PULLING!',
-                        objectsMoved: pullSpeed < 2 ? 'YES! (too slow)' : 'NO (inertia!)',
-                        explanation: pullSpeed < 2
-                            ? 'Slow pull = friction has time to act on objects, dragging them along.'
-                            : 'Fast pull = cloth moves away before friction can overcome inertia!'
+                        objectsMoved: movedCount === 0 ? 'NONE' : `${movedCount} SHIFTED`,
+                        explanation: currentPullSpeed < 2
+                            ? 'Slow pull means friction acts longer. Extra weight increases the cloth load and also increases inertia, so the cloth slows while heavier objects resist motion.'
+                            : currentPullSpeed >= 5
+                                ? 'Maximum speed gives the cloth almost no time to transfer motion, so the objects remain at rest while the cloth slips out.'
+                            : movedCount === 0
+                                ? 'Fast pull reduces contact time. The cloth still feels the total load, but the heavier objects stay nearly at rest because of inertia.'
+                                : 'The total load slowed the cloth, so friction had more time to act. Increase pull force or increase object weight to compare the effect.'
                     })
                 } else if (phase === 'settling') {
                     // Objects drop/settle
@@ -900,12 +962,12 @@ function Sim3_InertiaLab() {
                         phase = 'done'
                         const anyFell = objects.some(obj => obj.mesh.position.y < 1)
                         setHudData(prev => ({
-                            ...prev, phase: '✅ COMPLETE',
+                            ...prev, phase: '✅ COMPLETE', clothSpeed: '0.0',
                             explanation: pullSuccessful
-                                ? '🎉 Success! Objects stayed due to INERTIA — a body at rest stays at rest!'
+                                ? '🎉 Success! The cloth slipped out quickly, so friction acted for a short time and inertia kept the objects nearly at rest.'
                                 : anyFell
-                                    ? '💥 Objects fell off the table! Slow pull let friction drag them to the edge.'
-                                    : '⚠️ Objects were dragged. Pull FASTER so friction can\'t overcome inertia!'
+                                    ? '💥 Some objects fell off. The heavier load slowed the cloth enough for friction to drag objects toward the edge.'
+                                    : '⚠️ Some objects were dragged. Compare how changing weight changes both the cloth speed and the object motion.'
                         }))
                     }
                 } else if (phase === 'ready') {
@@ -915,9 +977,10 @@ function Sim3_InertiaLab() {
                         obj.mesh.rotation.y = t * 0.3 + i
                         obj.wire.position.copy(obj.mesh.position)
                         obj.wire.rotation.copy(obj.mesh.rotation)
-                        obj.ring.material.opacity = 0.2 + Math.sin(t * 3 + i) * 0.15
                     })
                 }
+
+                updateObjectHighlights(t)
 
                 // Fade trail
                 trailParticles.forEach(tp => {
@@ -935,11 +998,12 @@ function Sim3_InertiaLab() {
                     clothX = 0
                     pullTimer = 0
                     cloth.visible = true
+                    movedCount = 0
                 }
             },
             reset: resetAll
         }
-    }, [pullSpeed])
+    }, [])
 
     const buildSceneWrapper = useCallback((scene, camera, renderer, clock) => {
         const result = buildScene(scene, camera, renderer, clock)
@@ -972,17 +1036,22 @@ function Sim3_InertiaLab() {
                         <span className="sim-data-value">{hudData.clothPos} m</span>
                     </div>
                     <div className="sim-data-row">
+                        <span className="sim-data-label">Cloth Speed:</span>
+                        <span className="sim-data-value">{hudData.clothSpeed} m/s</span>
+                    </div>
+                    <div className="sim-data-row">
+                        <span className="sim-data-label" style={{ color: '#00d4ff' }}>Pull Force:</span>
+                        <span className="sim-data-value" style={{ color: '#00d4ff' }}>{hudData.pullForce} N</span>
+                    </div>
+                    <div className="sim-data-row">
+                        <span className="sim-data-label" style={{ color: '#fbbf24' }}>Cloth Load:</span>
+                        <span className="sim-data-value" style={{ color: '#fbbf24' }}>{hudData.frictionLoad} N</span>
+                    </div>
+                    <div className="sim-data-row">
                         <span className="sim-data-label">Objects Moved?</span>
-                        <span className={`sim-data-value ${hudData.objectsMoved.includes('YES') ? 'warning' : ''}`} style={{ color: hudData.objectsMoved.includes('NO') ? '#2dce89' : '#e63946' }}>
+                        <span className={`sim-data-value ${hudData.objectsMoved !== 'NONE' ? 'warning' : ''}`} style={{ color: hudData.objectsMoved === 'NONE' ? '#2dce89' : '#e63946' }}>
                             {hudData.objectsMoved}
                         </span>
-                    </div>
-                </div>
-
-                <div className="sim-overlay-panel right-side" style={{ minWidth: '140px' }}>
-                    <h4 className="sim-overlay-title">Newton's 1st Law</h4>
-                    <div style={{ fontSize: '0.85rem', color: 'var(--text-surface-soft)', lineHeight: '1.4' }}>
-                        {hudData.explanation}
                     </div>
                 </div>
             </div>
@@ -993,6 +1062,30 @@ function Sim3_InertiaLab() {
                 <button className="sim-btn" onClick={() => controlsRef.current?.reset?.()}>
                     ↺ RESET
                 </button>
+                <div className="sim-selector-group">
+                    <span className="sim-slider-label">SELECT:</span>
+                    <div className="sim-chip-list">
+                        {['Plate', 'Vase', 'Box'].map((name) => (
+                            <button
+                                key={name}
+                                type="button"
+                                className={`sim-chip ${selectedObject === name ? 'active' : ''}`}
+                                onClick={() => setSelectedObject(name)}
+                            >
+                                {name}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+                <div className="sim-slider-group">
+                    <span className="sim-slider-label">WEIGHT:</span>
+                    <input
+                        type="range" className="sim-slider"
+                        min="1" max="10" step="0.5" value={selectedWeight}
+                        onChange={(e) => updateSelectedWeight(Number(e.target.value))}
+                    />
+                    <span className="sim-value">{selectedWeight.toFixed(1)}kg</span>
+                </div>
                 <div className="sim-slider-group">
                     <span className="sim-slider-label">PULL SPEED:</span>
                     <input
@@ -1003,8 +1096,29 @@ function Sim3_InertiaLab() {
                     <span className="sim-value">{pullSpeed < 2 ? '🐢 SLOW' : pullSpeed < 4 ? '🏃 FAST' : '⚡ LIGHTNING'}</span>
                 </div>
             </div>
+            <div className="sim-control-summary">
+                <div className="sim-control-summary-grid">
+                    <div className="sim-summary-pill active">
+                        Selected: {selectedObject} ({selectedWeight.toFixed(1)} kg)
+                    </div>
+                    <div className="sim-summary-pill">
+                        Total Weight: {totalWeight.toFixed(1)} kg
+                    </div>
+                    {Object.entries(objectWeights).map(([name, weight]) => (
+                        <div
+                            key={name}
+                            className={`sim-summary-pill ${selectedObject === name ? 'active' : ''}`}
+                        >
+                            {name}: {weight.toFixed(1)} kg
+                        </div>
+                    ))}
+                </div>
+                <div className="sim-control-summary-text">
+                    {hudData.explanation}
+                </div>
+            </div>
             <div className="sim-info">
-                Pull the tablecloth! At high speed, objects stay due to INERTIA. Slow pulls drag them along. Try different speeds! 🪄
+                Change object weights, then pull the cloth. The total weight now changes the cloth speed, and each object's own weight changes how much friction and inertia affect its motion. 🪄
             </div>
         </div>
     )

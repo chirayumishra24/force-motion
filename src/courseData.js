@@ -116,7 +116,7 @@ const courseData = {
       sections: [
         {
           heading: "The First Law of Motion (Law of Inertia)",
-          content: `<p>Often called the <b>Law of Inertia</b>, this unit covers Galileo's observations and Newton's formalization.</p>
+          content: `<p>Often called the <b>Law of Inertia</b>, this unit introduces Galileo's key observations and Newton's formal statement.</p>
 <h3>Galileo's Foundation</h3>
 <p><a href="https://youtu.be/3cvtVVrl5bk?rel=0" style="color:#00d4ff; text-decoration:underline">Galileo's Concept of Inertia | Arbor Scientific</a></p>
 <p>Before Newton, it was commonly thought that a constant force was required to keep an object moving. Galileo challenged this by using <b>inclined planes</b>:</p>
@@ -192,11 +192,14 @@ const courseData = {
 <p><b>Fun Fact:</b> Observe that a groove is provided in a saucer for placing the tea cup. It prevents the cup from toppling over in case of sudden jerks.</p>`
         },
         {
-          heading: "History: Galileo Galilei",
+          heading: "History Snapshot: Galileo Galilei",
           content: `<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307120848-30.png" style="max-width:100%;height:auto;border:3px solid #e63946;margin:1rem auto;display:block;" /></p>
-<p>Galileo Galilei was born on 15 February 1564 in Pisa, Italy. Galileo, right from his childhood, had interest in mathematics and natural philosophy. But his father Vincenzo Galilei wanted him to become a medical doctor. Accordingly, Galileo enrolled himself for a medical degree at the University of Pisa in 1581 which he never completed because of his real interest in mathematics. In 1586, he wrote his first scientific book 'The Little Balance [La Balancitta]', in which he described Archimedes' method of finding the relative densities (or specific gravities) of substances using a balance. In 1589, in his series of essays – De Motu, he presented his theories about falling objects using an inclined plane to slow down the rate of descent.</p>
-<p>In 1592, he was appointed professor of mathematics at the University of Padua in the Republic of Venice. Here he continued his observations on the theory of motion and through his study of inclined planes and the pendulum, formulated the correct law for uniformly accelerated objects that the distance the object moves is proportional to the square of the time taken. Galileo was also a remarkable craftsman. He developed a series of telescopes whose optical performance was much better than that of other telescopes available during those days. Around 1640, he designed the first pendulum clock.</p>
-<p>In his book 'Starry Messenger' on his astronomical discoveries, Galileo claimed to have seen mountains on the moon, the milky way made up of tiny stars, and four small bodies orbiting Jupiter. In his books 'Discourse on Floating Bodies' and 'Letters on the Sunspots', he disclosed his observations of sunspots. Using his own telescopes and through his observations on Saturn and Venus, Galileo argued that all the planets must orbit the Sun and not the earth, contrary to what was believed at that time.</p><div style="clear:both;"></div>`
+<p>Galileo Galilei (1564-1642) was an Italian scientist whose studies of motion helped prepare the way for Newton's laws. By observing inclined planes and falling bodies, he argued that an object can keep moving unless a force such as friction changes its motion.</p>
+<ul class="rich-list">
+<li><b>Motion Studies:</b> He used inclined planes to understand acceleration and the motion of falling objects.</li>
+<li><b>Scientific Contributions:</b> He also improved telescopes and made important observations of the Moon, Jupiter, Venus, and the Sun.</li>
+<li><b>Why He Matters Here:</b> His ideas about inertia became the foundation for Newton's First Law of Motion.</li>
+</ul><div style="clear:both;"></div>`
         }
       ]
     },
@@ -418,7 +421,6 @@ const courseData = {
       icon: "🔄",
       videos: [
         { id: "DjtWxj0sq3M", title: "Newton's 3rd Law — Action and Reaction Forces — Dr. Binocs" },
-        { id: "eBiD6HEfoZA", title: "Newton's Third Law Explained — Physics JEE NEET", isShort: true },
         { id: "TVAxASr0iUY", title: "Third Law of Motion — Forces and Motion — Infinity Learn" }
       ],
       sections: [
@@ -426,7 +428,6 @@ const courseData = {
           heading: "Third Law of Motion",
           content: `<p><img src="https://login.skillizee.io/s/articles/69abc6e6ac530fe5e902eca0/images/image-20260307121507-47.png" style="max-width:100%;height:auto;border:3px solid #F97316;margin:1rem auto;display:block;" /></p>
 <p><a href="https://youtu.be/DjtWxj0sq3M?rel=0" style="color:#00d4ff; text-decoration:underline">Newton's 3rd Law of Motion | Action and Reaction Forces with Examples | Physics Laws | Dr. Binocs</a></p>
-<p><a href="https://youtu.be/eBiD6HEfoZA?rel=0" style="color:#00d4ff; text-decoration:underline">Class 9 Physics JEE NEET - Newton's Third Law Explained</a></p>
 <p>This unit explores the fundamental principle that forces never exist in isolation; they always occur as simultaneous pairs.</p>
 <h3>The Law</h3>
 <p>Newton’s Third Law states that when one object exerts a force on another object, the second object instantaneously exerts a force back on the first. These two forces are <b>equal in magnitude</b> but <b>opposite in direction</b>.</p>
@@ -443,6 +444,14 @@ const courseData = {
 	<li><b>Simultaneity:</b> These forces occur at the exact same time.</li>
 	<li><b>Unequal Accelerations:</b> While the forces are equal, the resulting acceleration may not be. According to F = ma, an object with a much larger mass (like a gun) will accelerate much less than an object with a small mass (like a bullet), even though the force applied to both is identical.</li>
 </ul>`
+        },
+        {
+          heading: "Activity 4: Ramp Forces and Motion",
+          type: "activity",
+          content: `<p>Use this embedded Activity 4 to explore how gravity, friction, and applied force affect motion on a ramp. Try changing the ramp conditions and observe how the object responds.</p>
+<div style="width: 100%; height: 500px; border: 3px solid #F97316; margin-top: 1rem;">
+    <iframe src="https://phet.colorado.edu/sims/cheerpj/motion-series/latest/motion-series.html?simulation=ramp-forces-and-motion" width="100%" height="100%" style="border: none;" allowfullscreen title="PhET Motion Series (Ramp Forces and Motion)"></iframe>
+</div>`
         },
         {
           heading: "Practical Examples and Applications",
@@ -525,7 +534,181 @@ const courseData = {
       "The SI unit of force is kg·m·s⁻². This is also known as Newton (N). A force of one Newton produces an acceleration of 1 m·s⁻² on an object of mass 1 kg.",
       "The momentum of an object is the product of its mass and velocity and has the same direction as that of the velocity. Its SI unit is kg·m·s⁻¹.",
       "Third law of motion: To every action, there is an equal and opposite reaction and they act on two different bodies."
-    ]
+    ],
+    questionnaire: {
+      heading: "Revision MCQ Challenge",
+      intro: "Use the tabs below to practice one multiple-choice question at a time.",
+      tabs: [
+        {
+          id: "units-1-2",
+          label: "Units 1-2",
+          title: "Force and Balanced Forces",
+          prompt: "Revise push, pull, friction, and net force with these quick MCQs.",
+          questions: [
+            {
+              tag: "Define",
+              question: "Which statement best defines force?",
+              options: [
+                "A force is only the speed of a moving object.",
+                "A force is a push or pull that can change the state of motion of an object.",
+                "A force is the mass present inside an object.",
+                "A force is the time taken by an object to move."
+              ],
+              correctIndex: 1,
+              explanation: "Force is described as a push or pull that can change an object's state of rest or motion."
+            },
+            {
+              tag: "Effects",
+              question: "Which of the following is NOT an effect of force?",
+              options: [
+                "Changing the speed of an object",
+                "Changing the direction of motion",
+                "Changing the shape or size of an object",
+                "Changing the chemical formula of a substance"
+              ],
+              correctIndex: 3,
+              explanation: "A force can change speed, direction, shape, or size, but it does not change a substance's chemical formula."
+            },
+            {
+              tag: "Compare",
+              question: "When balanced forces act on an object, the net force is:",
+              options: [
+                "Zero",
+                "Always upward",
+                "Equal to the larger force",
+                "Always enough to produce acceleration"
+              ],
+              correctIndex: 0,
+              explanation: "Balanced forces cancel each other, so the net force becomes zero."
+            },
+            {
+              tag: "Reason",
+              question: "A bicycle slows down after you stop pedalling mainly because of:",
+              options: [
+                "Inertia pushing it forward",
+                "Balanced forces increasing speed",
+                "Friction acting opposite to motion",
+                "Mass becoming smaller"
+              ],
+              correctIndex: 2,
+              explanation: "Friction opposes motion, so the bicycle slows once you stop applying force."
+            }
+          ]
+        },
+        {
+          id: "units-3-4",
+          label: "Units 3-4",
+          title: "First Law, Inertia and Mass",
+          prompt: "Focus on inertia, Galileo's idea, and the link between mass and resistance to change.",
+          questions: [
+            {
+              tag: "Law",
+              question: "Newton's First Law says that an object will remain at rest or in uniform straight-line motion unless:",
+              options: [
+                "its colour changes",
+                "an unbalanced force acts on it",
+                "its shape becomes round",
+                "it is always touching the ground"
+              ],
+              correctIndex: 1,
+              explanation: "The First Law states that only an unbalanced external force can change the state of rest or uniform motion."
+            },
+            {
+              tag: "Galileo",
+              question: "What did Galileo conclude from the inclined plane experiment?",
+              options: [
+                "Moving objects always need a constant force to keep moving.",
+                "Heavier bodies never move on smooth surfaces.",
+                "If friction were absent, an object could keep moving for a very long time.",
+                "Only round objects can show inertia."
+              ],
+              correctIndex: 2,
+              explanation: "Galileo reasoned that without friction, a moving body would continue in motion."
+            },
+            {
+              tag: "Inertia",
+              question: "Passengers in a bus jerk forward when the bus stops suddenly because of:",
+              options: [
+                "friction in the road",
+                "their inertia of motion",
+                "balanced forces in the bus",
+                "the engine pushing them ahead"
+              ],
+              correctIndex: 1,
+              explanation: "Their bodies tend to keep moving forward due to inertia of motion."
+            },
+            {
+              tag: "Mass",
+              question: "Which statement about mass and inertia is correct?",
+              options: [
+                "Mass and inertia are unrelated.",
+                "An object with more mass has less inertia.",
+                "Mass is a measure of inertia.",
+                "Only moving objects have inertia."
+              ],
+              correctIndex: 2,
+              explanation: "Mass measures how strongly an object resists changes in its state of motion."
+            }
+          ]
+        },
+        {
+          id: "units-5-6",
+          label: "Units 5-6",
+          title: "Second Law and Third Law",
+          prompt: "Connect momentum, force, and action-reaction pairs with these MCQs.",
+          questions: [
+            {
+              tag: "Momentum",
+              question: "The momentum of an object is given by:",
+              options: [
+                "p = m / v",
+                "p = mv",
+                "p = ma",
+                "p = F / a"
+              ],
+              correctIndex: 1,
+              explanation: "Momentum equals mass multiplied by velocity."
+            },
+            {
+              tag: "Second Law",
+              question: "According to Newton's Second Law, if the same force acts on two objects, the object with smaller mass will have:",
+              options: [
+                "smaller acceleration",
+                "the same acceleration",
+                "greater acceleration",
+                "zero acceleration"
+              ],
+              correctIndex: 2,
+              explanation: "From F = ma, acceleration is inversely proportional to mass for the same force."
+            },
+            {
+              tag: "Application",
+              question: "A fielder pulls their hands backward while catching a ball to:",
+              options: [
+                "increase the force on the hands",
+                "decrease the time of impact",
+                "increase the time of impact and reduce the force",
+                "stop the ball from having momentum"
+              ],
+              correctIndex: 2,
+              explanation: "Increasing the stopping time decreases the rate of change of momentum, which reduces the force."
+            },
+            {
+              tag: "Third Law",
+              question: "Why do action and reaction forces not cancel each other?",
+              options: [
+                "Because they act on different objects",
+                "Because one is always bigger than the other",
+                "Because one acts only after a delay",
+                "Because they act in the same direction"
+              ],
+              correctIndex: 0,
+              explanation: "Action and reaction are equal and opposite, but they act on two different bodies."
+            }
+          ]
+        }
+      ]
+    }
   }
 };
 

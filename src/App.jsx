@@ -187,7 +187,7 @@ function SectionBlock({ section, index, videoLookup, unitId }) {
                 <>
                   <div className="section-content" dangerouslySetInnerHTML={{ __html: renderedContent }} />
                   {inlineVideos.length > 0 && (
-                    <div className={`section-inline-videos ${unitId === 'unit-6' && index === 0 ? 'split-75-25' : ''}`}>
+                    <div className={`section-inline-videos ${unitId === 'unit-6' && index === 0 && inlineVideos.length > 1 ? 'split-75-25' : ''}`}>
                       {inlineVideos.map((video) => <VideoCard key={`${section.heading}-${video.id}`} video={video} />)}
                     </div>
                   )}
@@ -386,6 +386,41 @@ function UnitView({ unit }) {
 }
 
 function SummaryView({ summary }) {
+  const questionnaireTabs = summary.questionnaire?.tabs ?? []
+  const [activeTabId, setActiveTabId] = useState(questionnaireTabs[0]?.id ?? '')
+  const [questionIndexByTab, setQuestionIndexByTab] = useState(() =>
+    Object.fromEntries(questionnaireTabs.map((tab) => [tab.id, 0]))
+  )
+  const [selectedAnswers, setSelectedAnswers] = useState({})
+  const activeTab = questionnaireTabs.find((tab) => tab.id === activeTabId) ?? questionnaireTabs[0]
+  const activeQuestionIndex = activeTab ? (questionIndexByTab[activeTab.id] ?? 0) : 0
+  const activeQuestion = activeTab?.questions?.[activeQuestionIndex]
+  const answerKey = activeQuestion ? `${activeTab.id}-${activeQuestionIndex}` : ''
+  const selectedAnswer = answerKey ? selectedAnswers[answerKey] : undefined
+  const isAnswered = Number.isInteger(selectedAnswer)
+  const isCorrect = isAnswered && selectedAnswer === activeQuestion.correctIndex
+  const answeredCount = activeTab
+    ? activeTab.questions.filter((_, index) => Object.hasOwn(selectedAnswers, `${activeTab.id}-${index}`)).length
+    : 0
+
+  const goToQuestion = (direction) => {
+    if (!activeTab) return
+
+    setQuestionIndexByTab((prev) => ({
+      ...prev,
+      [activeTab.id]: Math.max(0, Math.min((prev[activeTab.id] ?? 0) + direction, activeTab.questions.length - 1))
+    }))
+  }
+
+  const selectAnswer = (optionIndex) => {
+    if (!activeQuestion) return
+
+    setSelectedAnswers((prev) => ({
+      ...prev,
+      [answerKey]: optionIndex
+    }))
+  }
+
   return (
     <motion.div
       className="unit-cards-layout"
@@ -430,6 +465,117 @@ function SummaryView({ summary }) {
           ))}
         </ul>
       </div>
+
+      {activeTab && (
+        <motion.div
+          className="summary-questionnaire"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.25, duration: 0.4 }}
+        >
+          <div className="summary-questionnaire-header">
+            <div>
+              <div className="summary-questionnaire-eyebrow">Practice Zone</div>
+              <h3 className="summary-questionnaire-title">{summary.questionnaire.heading}</h3>
+            </div>
+            <p className="summary-questionnaire-intro">{summary.questionnaire.intro}</p>
+          </div>
+
+          <div className="summary-tab-list" role="tablist" aria-label="Revision questionnaire tabs">
+            {questionnaireTabs.map((tab) => (
+              <button
+                key={tab.id}
+                type="button"
+                role="tab"
+                aria-selected={activeTab.id === tab.id}
+                className={`summary-tab-btn ${activeTab.id === tab.id ? 'active' : ''}`}
+                onClick={() => setActiveTabId(tab.id)}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+
+          <motion.div
+            key={`${activeTab.id}-${activeQuestionIndex}`}
+            className="summary-tab-panel"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.25 }}
+          >
+            <div className="summary-tab-copy">
+              <div className="summary-mcq-meta">
+                <span className="summary-question-tag">{activeQuestion.tag}</span>
+                <span className="summary-mcq-counter">Question {activeQuestionIndex + 1} / {activeTab.questions.length}</span>
+              </div>
+              <h4>{activeTab.title}</h4>
+              <p>{activeTab.prompt}</p>
+            </div>
+
+            <div className="summary-mcq-progress" aria-hidden="true">
+              <span style={{ width: `${((activeQuestionIndex + 1) / activeTab.questions.length) * 100}%` }} />
+            </div>
+
+            <div className="summary-mcq-card">
+              <p className="summary-mcq-question">{activeQuestion.question}</p>
+
+              <div className="summary-option-list">
+                {activeQuestion.options.map((option, optionIndex) => {
+                  const optionLetter = String.fromCharCode(65 + optionIndex)
+                  const state = !isAnswered
+                    ? ''
+                    : optionIndex === activeQuestion.correctIndex
+                      ? 'correct'
+                      : optionIndex === selectedAnswer
+                        ? 'incorrect'
+                        : ''
+
+                  return (
+                    <button
+                      key={`${answerKey}-${optionIndex}`}
+                      type="button"
+                      className={`summary-option-btn ${selectedAnswer === optionIndex ? 'selected' : ''} ${state}`}
+                      onClick={() => selectAnswer(optionIndex)}
+                    >
+                      <span className="summary-option-letter">{optionLetter}</span>
+                      <span>{option}</span>
+                    </button>
+                  )
+                })}
+              </div>
+
+              {isAnswered && (
+                <div className={`summary-answer-feedback ${isCorrect ? 'correct' : 'incorrect'}`}>
+                  <strong>{isCorrect ? 'Correct answer' : 'Try to notice the concept'}</strong>
+                  <p>{activeQuestion.explanation}</p>
+                </div>
+              )}
+            </div>
+
+            <div className="summary-mcq-footer">
+              <span className="summary-mcq-status">{answeredCount} of {activeTab.questions.length} answered in this tab</span>
+              <div className="summary-mcq-nav">
+                <button
+                  type="button"
+                  className="summary-nav-btn"
+                  disabled={activeQuestionIndex === 0}
+                  onClick={() => goToQuestion(-1)}
+                >
+                  Previous
+                </button>
+                <button
+                  type="button"
+                  className="summary-nav-btn"
+                  disabled={activeQuestionIndex === activeTab.questions.length - 1}
+                  onClick={() => goToQuestion(1)}
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
     </motion.div>
   )
 }
